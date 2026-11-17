@@ -121,10 +121,10 @@ const inputDisabled = computed(() => props.fetching || props.locked)
   gap: 6px;
   height: 32px;
   padding: 0 11px;
-  border: 1px solid #e4e7ed;
+  border: 1px solid var(--el-border-color);
   border-radius: 4px;
-  background: #f5f7fa;
-  color: #909399;
+  background: var(--el-fill-color-light);
+  color: var(--el-text-color-secondary);
   font-size: 13px;
 }
 

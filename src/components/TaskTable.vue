@@ -275,7 +275,7 @@ defineExpose({ selectAll, invert, clearSelection })
   justify-content: center;
   gap: 2px;
   cursor: pointer;
-  color: #606266;
+  color: var(--el-text-color-regular);
   width: 100%;
   /* 用 line-height 与 th 的高度对齐，而不是 height:100%：
      el-table 的 th 里还套了一层 div.cell，高度撑不满会导致内容贴顶 */
@@ -284,7 +284,7 @@ defineExpose({ selectAll, invert, clearSelection })
 }
 
 .type-header:hover {
-  color: #409eff;
+  color: var(--el-color-primary);
 }
 </style>
 

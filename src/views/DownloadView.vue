@@ -432,7 +432,7 @@ const countLabel = computed(() =>
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #606266;
+  color: var(--el-text-color-regular);
   cursor: pointer;
   flex: 0 0 auto;
   padding: 0 2px;
@@ -440,7 +440,7 @@ const countLabel = computed(() =>
 }
 
 .status-strip:hover {
-  color: #409eff;
+  color: var(--el-color-primary);
 }
 
 .log-text {
@@ -458,7 +458,7 @@ const countLabel = computed(() =>
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  color: #303133;
+  color: var(--el-text-color-primary);
   font-weight: 500;
   max-width: 180px;
   overflow: hidden;
@@ -474,20 +474,20 @@ const countLabel = computed(() =>
   display: flex;
   gap: 8px;
   padding: 3px 0;
-  border-bottom: 1px solid #f2f6fc;
+  border-bottom: 1px solid var(--el-border-color-extra-light);
   line-height: 1.5;
 }
 
 .log-item.error {
-  color: #f56c6c;
+  color: var(--el-color-danger);
 }
 
 .log-item.warn {
-  color: #e6a23c;
+  color: var(--el-color-warning);
 }
 
 .log-time {
-  color: #c0c4cc;
+  color: var(--el-text-color-placeholder);
   flex: 0 0 auto;
 }
 </style>

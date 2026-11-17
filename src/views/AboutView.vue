@@ -12,10 +12,10 @@ onMounted(async () => {
 })
 
 const links = [
-  { label: '博客', url: 'https://bbs.hookyun.cn', icon: 'Link' },
-  { label: 'B 站主页', url: 'https://space.bilibili.com/80435723', icon: 'VideoPlay' },
+  { label: '我的博客', url: 'https://foxnan.com', icon: 'Link' },
+  { label: 'AI快讯', url: 'https://hot.foxnan.com', icon: 'Reading' },
   { label: '开源地址', url: 'https://github.com/yanruying/douyin-downloader', icon: 'Star' },
-  { label: 'QQ 群', url: 'https://qm.qq.com/q/zVnIdRBseA', icon: 'ChatDotRound' },
+  { label: 'AI获客工具', url: 'https://v.foxnan.com', icon: 'Promotion' },
 ]
 
 function openLink(url: string) {
@@ -28,30 +28,30 @@ function openLink(url: string) {
     <div class="wrap">
       <!-- 标题区 -->
       <header class="hero">
-        <h1>抖音作品下载工具<span class="ver">v{{ version }}</span></h1>
-        <p class="author">作者：颜如嘤 - YanRuYing</p>
+        <h1>抖音作品下载<span class="ver">v{{ version }} · 定制版</span></h1>
+        <p class="author">作者：安卿辰</p>
 
         <!-- Shields.io 徽章 -->
         <div class="badges">
           <img
             alt="version"
-            src="https://img.shields.io/badge/version-4.0-409eff?style=flat-square"
+            src="https://img.shields.io/badge/version-4.0-3e7a6a?style=flat-square"
           />
           <img
             alt="platform"
-            src="https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square"
+            src="https://img.shields.io/badge/platform-Windows-5a655f?style=flat-square"
           />
           <img
             alt="stack"
-            src="https://img.shields.io/badge/Tauri%202-Rust-orange?style=flat-square"
+            src="https://img.shields.io/badge/Tauri%202-Rust-6c9a8b?style=flat-square"
           />
           <img
             alt="license"
-            src="https://img.shields.io/badge/license-MIT-green?style=flat-square"
+            src="https://img.shields.io/badge/license-MIT-4c8c6a?style=flat-square"
           />
           <img
             alt="price"
-            src="https://img.shields.io/badge/price-free-success?style=flat-square"
+            src="https://img.shields.io/badge/price-free-4c8c6a?style=flat-square"
           />
         </div>
       </header>
@@ -107,7 +107,7 @@ function openLink(url: string) {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
-  color: #1f2329;
+  color: var(--el-text-color-primary);
   letter-spacing: 0.3px;
 }
 
@@ -115,14 +115,14 @@ function openLink(url: string) {
   margin-left: 6px;
   font-size: 13px;
   font-weight: 500;
-  color: #409eff;
+  color: var(--el-color-primary);
   vertical-align: middle;
 }
 
 .author {
   margin: 0;
   font-size: 13px;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .badges {
@@ -152,10 +152,10 @@ function openLink(url: string) {
   gap: 10px;
   width: 100%;
   padding: 11px 14px;
-  border: 1px solid #e4e7ed;
+  border: 1px solid var(--el-border-color);
   border-radius: 8px;
-  background: #fff;
-  color: #303133;
+  background: var(--el-bg-color);
+  color: var(--el-text-color-primary);
   cursor: pointer;
   text-align: left;
   font-family: inherit;
@@ -163,10 +163,10 @@ function openLink(url: string) {
 }
 
 .link-card:hover {
-  border-color: #409eff;
-  background: #ecf5ff;
+  border-color: var(--el-color-primary);
+  background: var(--el-color-primary-light-9);
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(64, 158, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(62, 122, 106, 0.15);
 }
 
 .link-text {
@@ -184,19 +184,19 @@ function openLink(url: string) {
 
 .link-url {
   font-size: 11px;
-  color: #909399;
+  color: var(--el-text-color-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .arrow {
-  color: #c0c4cc;
+  color: var(--el-text-color-placeholder);
   flex: 0 0 auto;
 }
 
 .link-card:hover .arrow {
-  color: #409eff;
+  color: var(--el-color-primary);
 }
 
 /* 技术信息 */
@@ -219,11 +219,11 @@ function openLink(url: string) {
 }
 
 .free {
-  color: #67c23a;
+  color: var(--el-color-success);
   font-weight: 500;
 }
 
 .warn {
-  color: #f56c6c;
+  color: var(--el-color-danger);
 }
 </style>

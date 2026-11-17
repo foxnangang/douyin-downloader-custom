@@ -51,8 +51,8 @@ const showSpeed = computed(() => props.state.downloading)
   gap: 10px;
   height: 40px;
   padding: 0 14px;
-  border-top: 1px solid #e4e7ed;
-  background: #fff;
+  border-top: 1px solid var(--el-border-color);
+  background: var(--el-bg-color);
   flex: 0 0 40px;
 }
 
@@ -67,7 +67,7 @@ const showSpeed = computed(() => props.state.downloading)
 
 .counter {
   font-size: 12px;
-  color: #606266;
+  color: var(--el-text-color-regular);
   white-space: nowrap;
   min-width: 150px;
   text-align: right;
@@ -75,7 +75,7 @@ const showSpeed = computed(() => props.state.downloading)
 
 .speed {
   font-size: 12px;
-  color: #303133;
+  color: var(--el-text-color-primary);
   white-space: nowrap;
   min-width: 76px;
 }

@@ -133,8 +133,8 @@ onUnmounted(() => {
   z-index: 3000;
   min-width: 132px;
   padding: 4px;
-  background: #fff;
-  border: 1px solid #e4e7ed;
+  background: var(--el-bg-color);
+  border: 1px solid var(--el-border-color);
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   user-select: none;
@@ -149,7 +149,7 @@ onUnmounted(() => {
   border: none;
   border-radius: 4px;
   background: none;
-  color: #303133;
+  color: var(--el-text-color-primary);
   font-size: 13px;
   font-family: inherit;
   text-align: left;
@@ -157,12 +157,12 @@ onUnmounted(() => {
 }
 
 .ctx-item:hover:not(:disabled) {
-  background: #ecf5ff;
-  color: #409eff;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
 }
 
 .ctx-item:disabled {
-  color: #c0c4cc;
+  color: var(--el-text-color-placeholder);
   cursor: not-allowed;
 }
 </style>

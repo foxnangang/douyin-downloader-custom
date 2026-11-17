@@ -1,5 +1,67 @@
-/* 全局样式：只做布局与可读性，配色交给 Element Plus 默认主题。
-   旧版 QSS 的 #409EFF 色板本来就是抄 Element Plus 的，这版直接回归原生。 */
+/* ============================================================
+   全局主题层：墨绿主色 + 鎏金点缀 + 暖米灰底
+   - 所有颜色集中为 CSS 变量，组件内只引用变量，不再散落硬编码色值
+   - Element Plus 通过覆盖 --el-* 变量换肤，不引入额外 UI 库
+   - 字体走系统字体栈，离线桌面应用不依赖网络字体
+   ============================================================ */
+
+:root {
+  /* 主色 · 墨绿 */
+  --el-color-primary: #3e7a6a;
+  --el-color-primary-light-3: #6c9a8b;
+  --el-color-primary-light-5: #98b9ad;
+  --el-color-primary-light-7: #c3d8d0;
+  --el-color-primary-light-8: #dce9e4;
+  --el-color-primary-light-9: #eef5f2;
+  --el-color-primary-dark-2: #316254;
+
+  /* 语义色 */
+  --el-color-success: #4c8c6a;
+  --el-color-success-light-9: #edf5f0;
+  --el-color-warning: #b08d57;
+  --el-color-warning-light-9: #f8f2e9;
+  --el-color-danger: #c25b52;
+  --el-color-danger-light-9: #fcf0ee;
+  --el-color-info: #8a948e;
+  --el-color-info-light-9: #f4f6f4;
+
+  /* 文字 */
+  --el-text-color-primary: #2c3531;
+  --el-text-color-regular: #5a655f;
+  --el-text-color-secondary: #8a948e;
+  --el-text-color-placeholder: #b4bdb7;
+  --el-text-color-disabled: #c8d0ca;
+
+  /* 边框 */
+  --el-border-color: #e1e5df;
+  --el-border-color-light: #e9ede7;
+  --el-border-color-lighter: #f0f2ee;
+  --el-border-color-extra-light: #f5f7f3;
+  --el-border-color-darker: #c6cdc5;
+
+  /* 填充与背景 */
+  --el-fill-color: #f3f5f1;
+  --el-fill-color-light: #f7f9f6;
+  --el-fill-color-lighter: #fafbf9;
+  --el-fill-color-blank: #ffffff;
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #f4f5f1;
+  --el-bg-color-overlay: #ffffff;
+
+  /* 圆角与字体 */
+  --el-border-radius-base: 8px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 18px;
+  --el-font-family: 'Inter', 'HarmonyOS Sans SC', 'Source Han Sans SC', 'PingFang SC',
+    'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --el-font-size-base: 13px;
+
+  /* 应用自有变量：鎏金点缀与表面 */
+  --app-accent: #b08d57;
+  --app-accent-soft: #f5f0e6;
+  --app-canvas: #f4f5f1;
+  --app-surface: #ffffff;
+}
 
 * {
   box-sizing: border-box;
@@ -14,13 +76,15 @@ body,
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  font-size: 13px;
-  color: #303133;
-  background: #f5f7fa;
+  font-family: var(--el-font-family);
+  font-size: var(--el-font-size-base);
+  color: var(--el-text-color-primary);
+  background: var(--app-canvas);
   overflow: hidden;
   /* Tauri 窗口内禁止文本选中拖拽，输入区单独放开 */
   user-select: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 input,
@@ -30,24 +94,77 @@ textarea,
 }
 
 .mono {
-  font-family: 'Cascadia Mono', 'Consolas', monospace;
+  font-family: 'Cascadia Mono', 'JetBrains Mono', Consolas, monospace;
 }
 
 /* 表格里的描述列允许换行，长文案不撑破 */
 .cell-wrap {
   white-space: normal;
   word-break: break-word;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .text-muted {
-  color: #909399;
+  color: var(--el-text-color-secondary);
 }
 
 .text-danger {
-  color: #f56c6c;
+  color: var(--el-color-danger);
 }
 
 .text-success {
-  color: #67c23a;
+  color: var(--el-color-success);
+}
+
+/* ---------- Element Plus 质感微调 ---------- */
+
+/* 主按钮：低饱和墨绿 + 轻投影，弱化"塑料感" */
+.el-button--primary:not(.is-plain):not(.is-text):not(.is-link) {
+  box-shadow: 0 2px 6px rgba(62, 122, 106, 0.18);
+}
+
+.el-button--primary:not(.is-plain):not(.is-text):not(.is-link):hover {
+  box-shadow: 0 3px 10px rgba(62, 122, 106, 0.26);
+}
+
+/* 卡片与弹出面板：细边框 + 柔和阴影 */
+.el-card {
+  border-color: var(--el-border-color-light);
+  box-shadow: 0 1px 3px rgba(44, 53, 49, 0.04), 0 6px 18px rgba(44, 53, 49, 0.03);
+}
+
+/* 表格：更克制的分隔线与表头 */
+.el-table {
+  --el-table-border-color: var(--el-border-color-lighter);
+  --el-table-header-bg-color: #f7f9f6;
+  --el-table-row-hover-bg-color: #f4f8f5;
+  --el-table-header-text-color: var(--el-text-color-regular);
+}
+
+.el-table th.el-table__cell {
+  font-weight: 600;
+}
+
+/* 标签圆角统一 */
+.el-tag {
+  border-radius: 5px;
+}
+
+/* 滚动条：细、低调 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d5dbd4;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bcc5bc;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }

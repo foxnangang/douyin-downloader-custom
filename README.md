@@ -235,3 +235,39 @@ a_bogus 签名算法源自 [f2](https://github.com/Johnserf-Seed/f2)（Apache Li
 本程序完全免费，仅用于学习与研究。
 
 禁止将本程序用于任何商业或违法用途。
+
+---
+
+## 本地定制说明（2026-11-18）
+
+本分支基于上游 `yanruying/douyin-downloader` v4.0 做纯前端视觉与关于页定制，**未改动任何 Rust 后端代码、业务逻辑与接口调用**。
+
+### 1. UI 主题改造
+
+- 原版：Element Plus 默认蓝色（`#409EFF`），配色硬编码在 10+ 个组件中。
+- 改造：在 `src/styles.css` 建立 CSS 变量层，覆盖 Element Plus 的 `--el-*` 主题变量；各组件内硬编码色值统一改为变量引用（共替换 75 处）。
+- 配色：墨绿主色（`#3E7A6A`）+ 鎏金点缀（`#B08D57`）+ 暖米灰底（`#F4F5F1`），字体走系统字体栈（Inter / HarmonyOS Sans SC / 思源黑体 / 苹方 / 微软雅黑），离线可用。
+- 附带质感微调：主按钮轻投影、卡片柔和阴影、表格细分隔线、细滚动条、标签圆角统一。
+
+### 2. 关于页定制（`src/views/AboutView.vue`）
+
+| 项目 | 原值 | 定制值 |
+| --- | --- | --- |
+| 作者 | 颜如嘤 - YanRuYing | 安卿辰 |
+| 版本标识 | `v{{ version }}` | `v{{ version }} · 定制版`（版本号仍从后端读取，不改打包配置） |
+| 主标题 | 抖音作品下载工具 | 抖音作品下载 |
+| 徽章配色 | 蓝/橙/绿默认色 | 统一为墨绿系，与新主题一致 |
+| 链接卡片 | 博客 / B站 / 开源地址 / QQ群 | 我的博客(foxnan.com) / AI快讯(hot.foxnan.com) / 开源地址(不变) / AI获客工具(v.foxnan.com) |
+
+> 注：链接 URL 由使用者提供，其中 `https:/foxnan.com` 缺少一个斜杠、两条域名未带协议头，已统一规范为 `https://`。
+
+### 3. 验证
+
+- `pnpm install`：通过
+- `pnpm build`（含 `vue-tsc --noEmit` 类型检查）：通过
+- 构建告警两条均为上游既有的动态导入提示，与本次改动无关。
+- **未经自动验证项**：Tauri 桌面端实际渲染效果（本机未安装 Rust/MSVC 工具链，无法执行 `pnpm tauri dev` 或打包）。建议在安装 WebView2 的 Windows 机器上跑一次 `pnpm tauri dev` 目视确认配色与关于页。
+
+### 4. 回退
+
+改动集中在 11 个前端文件，可用 `git diff` 查看、`git checkout -- src/` 整体回退。上游协议与声明保持不变。

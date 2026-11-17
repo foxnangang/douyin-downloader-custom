@@ -253,7 +253,7 @@ async function resetPath() {
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  color: #303133;
+  color: var(--el-text-color-primary);
 }
 
 .spacer {
@@ -267,7 +267,7 @@ async function resetPath() {
 .field > label {
   display: block;
   font-size: 13px;
-  color: #606266;
+  color: var(--el-text-color-regular);
   margin-bottom: 6px;
 }
 
@@ -289,16 +289,16 @@ async function resetPath() {
 .tip {
   margin: 6px 0 0;
   font-size: 12px;
-  color: #909399;
+  color: var(--el-text-color-secondary);
   line-height: 1.6;
 }
 
 .tip code {
-  background: #f5f7fa;
+  background: var(--el-fill-color-light);
   padding: 1px 4px;
   border-radius: 3px;
   font-size: 11px;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .mb {
@@ -311,7 +311,7 @@ async function resetPath() {
   justify-content: space-between;
   gap: 12px;
   padding: 8px 0;
-  border-bottom: 1px dashed #f0f2f5;
+  border-bottom: 1px dashed var(--el-border-color-extra-light);
 }
 
 .switch-row:last-of-type {
@@ -320,7 +320,7 @@ async function resetPath() {
 
 .sw-title {
   font-size: 13px;
-  color: #303133;
+  color: var(--el-text-color-primary);
   margin-bottom: 2px;
 }
 
@@ -330,12 +330,12 @@ async function resetPath() {
 .note-tip {
   margin-top: 12px;
   padding: 14px 16px;
-  background: #f4f7fb;
-  border: 1px solid #e6eef8;
+  background: var(--el-fill-color-light);
+  border: 1px solid var(--el-border-color-light);
   border-radius: 6px;
   font-size: 12.5px;
   line-height: 1.7;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .user-row {
@@ -373,7 +373,7 @@ async function resetPath() {
 .path-label {
   flex: 0 0 62px;
   font-size: 12px;
-  color: #909399;
+  color: var(--el-text-color-secondary);
 }
 
 .ellipsis {
@@ -383,7 +383,7 @@ async function resetPath() {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 11px;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .save-bar {
@@ -394,12 +394,12 @@ async function resetPath() {
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  background: #fff;
-  border: 1px solid #e4e7ed;
+  background: var(--el-bg-color);
+  border: 1px solid var(--el-border-color);
   border-radius: 6px;
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
   font-size: 13px;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .fade-enter-active,

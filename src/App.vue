@@ -211,7 +211,7 @@ async function doLogout() {
   grid-template-columns: 84px minmax(0, 1fr);
   height: 100vh;
   overflow: hidden;
-  background: #f5f7fa;
+  background: var(--el-fill-color-light);
 }
 
 .main-column {

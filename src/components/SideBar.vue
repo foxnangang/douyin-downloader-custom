@@ -157,8 +157,8 @@ const avatarBroken = computed(() => false)
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: #fff;
-  border-right: 1px solid #e4e7ed;
+  background: var(--el-bg-color);
+  border-right: 1px solid var(--el-border-color);
   padding: 10px 0 8px;
   overflow: hidden;
 }
@@ -176,25 +176,25 @@ const avatarBroken = computed(() => false)
   gap: 3px;
   width: 56px;
   padding: 8px 0;
-  border: 1px dashed #c0c4cc;
+  border: 1px dashed var(--el-text-color-placeholder);
   border-radius: 8px;
-  background: #fafafa;
-  color: #606266;
+  background: var(--el-fill-color-lighter);
+  color: var(--el-text-color-regular);
   font-size: 10px;
   cursor: pointer;
   transition: all 0.15s;
 }
 
 .login-btn:hover {
-  border-color: #409eff;
-  color: #409eff;
-  background: #ecf5ff;
+  border-color: var(--el-color-primary);
+  color: var(--el-color-primary);
+  background: var(--el-color-primary-light-9);
 }
 
 .login-btn.expired {
-  border-color: #f56c6c;
-  color: #f56c6c;
-  background: #fef0f0;
+  border-color: var(--el-color-danger);
+  color: var(--el-color-danger);
+  background: var(--el-color-danger-light-9);
 }
 
 .avatar-btn {
@@ -212,8 +212,8 @@ const avatarBroken = computed(() => false)
   height: 46px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #409eff;
-  background: #f5f7fa;
+  border: 2px solid var(--el-color-primary);
+  background: var(--el-fill-color-light);
   transition: transform 0.15s;
 }
 
@@ -228,8 +228,8 @@ const avatarBroken = computed(() => false)
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: #67c23a;
-  border: 2px solid #fff;
+  background: var(--el-color-success);
+  border: 2px solid var(--el-bg-color);
 }
 
 .sep {
@@ -248,7 +248,7 @@ const avatarBroken = computed(() => false)
   align-items: center;
   gap: 3px;
   padding: 9px 2px;
-  color: #606266;
+  color: var(--el-text-color-regular);
   text-decoration: none;
   font-size: 11px;
   line-height: 1.2;
@@ -261,14 +261,14 @@ const avatarBroken = computed(() => false)
 }
 
 .nav-item:hover {
-  background: #f5f7fa;
-  color: #409eff;
+  background: var(--el-fill-color-light);
+  color: var(--el-color-primary);
 }
 
 .nav-item.active {
-  color: #409eff;
-  border-left-color: #409eff;
-  background: #ecf5ff;
+  color: var(--el-color-primary);
+  border-left-color: var(--el-color-primary);
+  background: var(--el-color-primary-light-9);
   font-weight: 500;
 }
 
@@ -280,11 +280,11 @@ const avatarBroken = computed(() => false)
 
 .nav-item.locked:hover {
   background: none;
-  color: #606266;
+  color: var(--el-text-color-regular);
 }
 
 .nav-item.locked.active:hover {
-  color: #409eff;
+  color: var(--el-color-primary);
 }
 
 .spacer {
