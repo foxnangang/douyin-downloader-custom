@@ -46,6 +46,19 @@ jobs:
         shell: pwsh
         run: Get-ChildItem -Recurse src-tauri/target/release/bundle | Select-Object FullName, Length
 
+      - name: Rename installer
+        shell: pwsh
+        run: |
+          $dir = "src-tauri/target/release/bundle/nsis"
+          $exe = Get-ChildItem -Path $dir -Filter *.exe | Select-Object -First 1
+          if ($exe) {
+            Rename-Item -Path $exe.FullName -NewName "抖音作品下载工具v5.0-setup.exe" -Force
+            Write-Host "Renamed to: 抖音作品下载工具v5.0-setup.exe"
+          } else {
+            Write-Error "No NSIS exe found"
+            exit 1
+          }
+
       - name: Upload EXE & MSI
         uses: actions/upload-artifact@v4
         with:

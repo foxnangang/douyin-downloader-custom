@@ -8,7 +8,9 @@ import { api } from '@/api/ipc'
 const version = ref('')
 
 onMounted(async () => {
-  version.value = await api.appVersion().catch(() => '4.0.0')
+  const v = await api.appVersion().catch(() => '5.0.0')
+  // 只显示主版本.次版本，如 5.0.0 → 5.0
+  version.value = v.split('.').slice(0, 2).join('.')
 })
 
 const links = [
@@ -28,14 +30,14 @@ function openLink(url: string) {
     <div class="wrap">
       <!-- 标题区 -->
       <header class="hero">
-        <h1>抖音作品下载<span class="ver">v{{ version }} · 定制版</span></h1>
+        <h1>抖音作品下载<span class="ver">v{{ version }}</span></h1>
         <p class="author">作者：安卿辰</p>
 
         <!-- Shields.io 徽章 -->
         <div class="badges">
           <img
             alt="version"
-            src="https://img.shields.io/badge/version-4.0-3e7a6a?style=flat-square"
+            src="https://img.shields.io/badge/version-5.0-3e7a6a?style=flat-square"
           />
           <img
             alt="platform"

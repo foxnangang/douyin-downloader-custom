@@ -1,6 +1,6 @@
 [package]
 name = "douyin-downloader"
-version = "4.0.0"
+version = "5.0.0"
 description = "抖音作品批量下载工具 — 支持主页、点赞、收藏与单作品"
 authors = ["YanRuYing"]
 license = "MIT"
